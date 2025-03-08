@@ -4,9 +4,6 @@ import WeatherService from '../../service/weatherService.js';
 
 const router = Router();
 
-// import HistoryService from '../../service/historyService.js';
-// import WeatherService from '../../service/weatherService.js';
-
 // TODO: POST Request with city name to retrieve weather data
 router.post('/', async (req, res) => {
   try {
@@ -28,7 +25,7 @@ router.post('/', async (req, res) => {
     });
   } catch (error) {
     console.error('Error processing weather request:', error);
-    return res.status(500).send('Error processing request');
+    return res.status(500).json({ error: 'Error retrieving weather data' });
   }
 });
 
